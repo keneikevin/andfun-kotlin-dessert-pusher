@@ -27,6 +27,7 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // TODO (01) Add an info level log statement here
-        Log.i("MainActivity","OnCreate")
+        Timber.i("onCreate")
 
         // Use Data Binding to get reference to the views
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -153,6 +154,31 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     // TODO (02) Override the onStart lifecycle method and add an info level log statement
     override fun onStart() {
         super.onStart()
-        Log.i("MainActivity","onStart")
+        Timber.i("Onstart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onResume")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop")
     }
 }
